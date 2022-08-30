@@ -1,15 +1,11 @@
 package hellocucumber;
 
-import org.junit.platform.suite.api.ConfigurationParameter;
-import org.junit.platform.suite.api.IncludeEngines;
-import org.junit.platform.suite.api.SelectClasspathResource;
-import org.junit.platform.suite.api.Suite;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
-import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
-
-@Suite
-@IncludeEngines("cucumber")
-@SelectClasspathResource("dynamicfeature")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "src/test/resources/dynamicfeature",
+        plugin = {"pretty", "json:target/cucumber-json-reports/report.json"})
 public class RunCucumberTest {
 }
