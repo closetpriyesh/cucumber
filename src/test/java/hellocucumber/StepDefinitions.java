@@ -9,7 +9,7 @@ public class StepDefinitions {
 
     @When("User launches google website")
     public void userLaunchesGoogleWebsite() {
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(false);
     }
 
 }
